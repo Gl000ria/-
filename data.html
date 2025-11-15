@@ -1,0 +1,229 @@
+<!-- data.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Астральный атлас — Табличные данные</title>
+</head>
+<body>
+  <header>
+    <h1 align="center">Табличные данные: планеты и параметры</h1>
+    <p align="center">Форма и таблица с показателями. (Только HTML — визуальные элементы управления размещены выше таблицы.)</p>
+  </header>
+
+  <nav>
+    <h2>Меню</h2>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="milky_way.html">Млечный путь</a></li>
+      <li><a href="data.html">Таблица</a></li>
+    </ul>
+  </nav>
+
+  <!-- Развертывающиеся блоки перед таблицей (Сортировка, Фильтры, График) -->
+  <section>
+    <h2>Инструменты (визуально — раскрывающиеся блоки)</h2>
+
+    <details>
+      <summary><button type="button" title="Развернуть: Сортировка">Сортировка ▼</button></summary>
+      <p>
+        Элементы для задания порядка сортировки (визуально). Реализация сортировки на JavaScript/сервере не требуется.
+      </p>
+      <form action="#" method="get" name="sortForm" id="sortForm">
+        <label for="sortField">Поле для сортировки:</label>
+        <select id="sortField" name="sortField">
+          <option value="name">Имя</option>
+          <option value="radius">Радиус</option>
+          <option value="mass">Масса</option>
+          <option value="moons">Спутников</option>
+          <option value="period">Орб. период</option>
+          <option value="temperature">Температура</option>
+          <option value="distance">Расстояние</option>
+        </select>
+        <label for="sortOrder">Порядок:</label>
+        <select id="sortOrder" name="sortOrder">
+          <option value="asc">По возрастанию</option>
+          <option value="desc">По убыванию</option>
+        </select>
+        <input type="submit" value="Применить" />
+      </form>
+    </details>
+
+    <details>
+      <summary><button type="button" title="Развернуть: Фильтры">Фильтры ▼</button></summary>
+      <p>Параметры для фильтрации таблицы (визуально).</p>
+      <form action="#" method="get" name="filterForm" id="filterForm">
+        <label for="minRadius">Мин. радиус (R⊕):</label>
+        <input type="number" id="minRadius" name="minRadius" min="0" value="0" step="0.1" />
+        <label for="maxRadius">Макс. радиус (R⊕):</label>
+        <input type="number" id="maxRadius" name="maxRadius" min="0" value="25" step="0.1" /><br><br>
+        
+        <label for="minMass">Мин. масса (M⊕):</label>
+        <input type="number" id="minMass" name="minMass" min="0" value="0" step="0.1" />
+        <label for="maxMass">Макс. масса (M⊕):</label>
+        <input type="number" id="maxMass" name="maxMass" min="0" value="400" step="0.1" /><br><br>
+        
+        <label for="minMoons">Мин. спутников:</label>
+        <input type="number" id="minMoons" name="minMoons" min="0" value="0" />
+        <label for="maxMoons">Макс. спутников:</label>
+        <input type="number" id="maxMoons" name="maxMoons" min="0" value="10" /><br><br>
+        
+        <label for="minPeriod">Мин. орб. период (дн):</label>
+        <input type="number" id="minPeriod" name="minPeriod" min="0" value="0" step="0.1" />
+        <label for="maxPeriod">Макс. орб. период (дн):</label>
+        <input type="number" id="maxPeriod" name="maxPeriod" min="0" value="500" step="0.1" /><br><br>
+        
+        <label for="minTemperature">Мин. температура (K):</label>
+        <input type="number" id="minTemperature" name="minTemperature" min="0" value="0" />
+        <label for="maxTemperature">Макс. температура (K):</label>
+        <input type="number" id="maxTemperature" name="maxTemperature" min="0" value="2000" /><br><br>
+        
+        <label for="minDistance">Мин. расстояние (св.г):</label>
+        <input type="number" id="minDistance" name="minDistance" min="0" value="0" step="0.1" />
+        <label for="maxDistance">Макс. расстояние (св.г):</label>
+        <input type="number" id="maxDistance" name="maxDistance" min="0" value="3000" step="0.1" /><br><br>
+        
+        <input type="submit" value="Отфильтровать" />
+      </form>
+    </details>
+
+    <details>
+      <summary><button type="button" title="Развернуть: График">График ▼</button></summary>
+      <p>Параметры для построения графика (визуально).</p>
+      <form action="#" method="get" name="chartForm" id="chartForm">
+        <label for="chartType">Тип графика:</label>
+        <select id="chartType" name="chartType">
+          <option value="line">Линейный</option>
+          <option value="bar">Столбчатый</option>
+          <option value="scatter">Точечный</option>
+        </select>
+        <label for="xField">Ось X:</label>
+        <select id="xField" name="xField">
+          <option value="name">Имя</option>
+          <option value="radius">Радиус</option>
+          <option value="mass">Масса</option>
+          <option value="period">Орб. период</option>
+          <option value="temperature">Температура</option>
+          <option value="distance">Расстояние</option>
+        </select>
+        <label for="yField">Ось Y:</label>
+        <select id="yField" name="yField">
+          <option value="radius">Радиус</option>
+          <option value="mass">Масса</option>
+          <option value="moons">Спутников</option>
+          <option value="period">Орб. период</option>
+          <option value="temperature">Температура</option>
+          <option value="distance">Расстояние</option>
+        </select>
+        <input type="submit" value="Построить" />
+      </form>
+    </details>
+
+  </section>
+
+  <!-- Таблица: не менее 50 строк -->
+  <section>
+    <h2>Таблица параметров планет и объектов</h2>
+    <p>Ниже — таблица с примерными/демонстрационными данными (50 строк). Атрибуты таблицы: border, cellpadding, cellspacing, width и т.д.</p>
+
+    <table border="1" cellpadding="4" cellspacing="0" width="100%" summary="Таблица планет галактики Млечный путь">
+      <thead>
+        <tr>
+          <th align="left">#</th>
+          <th align="left">Название</th>
+          <th align="right">Радиус (R⊕)</th>
+          <th align="right">Масса (M⊕)</th>
+          <th align="right">Спутники</th>
+          <th align="right">Орб. период (дн)</th>
+          <th align="right">Температура (K)</th>
+          <th align="right">Расстояние (св.г)</th>
+          <th align="left">Тип</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Реальные экзопланеты Млечного Пути -->
+        <tr><td>1</td><td>TRAPPIST-1e</td><td align="right">0.92</td><td align="right">0.69</td><td align="right">0</td><td align="right">6.1</td><td align="right">251</td><td align="right">39.5</td><td>Землеподобная</td></tr>
+        <tr><td>2</td><td>Proxima Centauri b</td><td align="right">1.07</td><td align="right">1.27</td><td align="right">0</td><td align="right">11.2</td><td align="right">234</td><td align="right">4.24</td><td>Сверхземля</td></tr>
+        <tr><td>3</td><td>Kepler-186f</td><td align="right">1.11</td><td align="right">1.44</td><td align="right">0</td><td align="right">129.9</td><td align="right">188</td><td align="right">492</td><td>Землеподобная</td></tr>
+        <tr><td>4</td><td>GJ 1214b</td><td align="right">2.68</td><td align="right">6.55</td><td align="right">0</td><td align="right">1.58</td><td align="right">547</td><td align="right">47.8</td><td>Мини-Нептун</td></tr>
+        <tr><td>5</td><td>HD 209458 b</td><td align="right">14.8</td><td align="right">218</td><td align="right">0</td><td align="right">3.52</td><td align="right">1459</td><td align="right">154</td><td>Горячий Юпитер</td></tr>
+        <tr><td>6</td><td>Kepler-22b</td><td align="right">2.35</td><td align="right">34.2</td><td align="right">0</td><td align="right">289.9</td><td align="right">262</td><td align="right">587</td><td>Суперземля</td></tr>
+        <tr><td>7</td><td>WASP-17b</td><td align="right">22.3</td><td align="right">155</td><td align="right">0</td><td align="right">3.74</td><td align="right">1557</td><td align="right">1330</td><td>Горячий Юпитер</td></tr>
+        <tr><td>8</td><td>55 Cancri e</td><td align="right">1.95</td><td align="right">8.63</td><td align="right">0</td><td align="right">0.74</td><td align="right">1957</td><td align="right">40.9</td><td>Суперземля</td></tr>
+        <tr><td>9</td><td>HD 189733 b</td><td align="right">12.1</td><td align="right">356</td><td align="right">0</td><td align="right">2.22</td><td align="right">1091</td><td align="right">64.5</td><td>Горячий Юпитер</td></tr>
+        <tr><td>10</td><td>Kepler-438b</td><td align="right">1.12</td><td align="right">4.8</td><td align="right">0</td><td align="right">35.2</td><td align="right">276</td><td align="right">472</td><td>Землеподобная</td></tr>
+
+        <tr><td>11</td><td>GJ 667Cc</td><td align="right">1.54</td><td align="right">3.8</td><td align="right">0</td><td align="right">28.1</td><td align="right">277</td><td align="right">23.6</td><td>Сверхземля</td></tr>
+        <tr><td>12</td><td>Kepler-452b</td><td align="right">1.63</td><td align="right">5</td><td align="right">0</td><td align="right">384.8</td><td align="right">265</td><td align="right">1402</td><td>Суперземля</td></tr>
+        <tr><td>13</td><td>TRAPPIST-1f</td><td align="right">1.04</td><td align="right">0.68</td><td align="right">0</td><td align="right">9.2</td><td align="right">219</td><td align="right">39.5</td><td>Землеподобная</td></tr>
+        <tr><td>14</td><td>LHS 1140 b</td><td align="right">1.43</td><td align="right">6.38</td><td align="right">0</td><td align="right">24.7</td><td align="right">230</td><td align="right">48.9</td><td>Сверхземля</td></tr>
+        <tr><td>15</td><td>K2-18b</td><td align="right">2.37</td><td align="right">8.63</td><td align="right">0</td><td align="right">32.9</td><td align="right">265</td><td align="right">124</td><td>Суперземля</td></tr>
+        <tr><td>16</td><td>Teegarden b</td><td align="right">1.02</td><td align="right">1.05</td><td align="right">0</td><td align="right">4.91</td><td align="right">264</td><td align="right">12.5</td><td>Землеподобная</td></tr>
+        <tr><td>17</td><td>GJ 357 d</td><td align="right">1.22</td><td align="right">6.1</td><td align="right">0</td><td align="right">55.7</td><td align="right">219</td><td align="right">31</td><td>Сверхземля</td></tr>
+        <tr><td>18</td><td>Kepler-1649c</td><td align="right">1.06</td><td align="right">1.2</td><td align="right">0</td><td align="right">19.5</td><td align="right">234</td><td align="right">300</td><td>Землеподобная</td></tr>
+        <tr><td>19</td><td>TOI-700 d</td><td align="right">1.19</td><td align="right">2.1</td><td align="right">0</td><td align="right">37.4</td><td align="right">268</td><td align="right">101.4</td><td>Землеподобная</td></tr>
+        <tr><td>20</td><td>GJ 1061 c</td><td align="right">1.68</td><td align="right">1.75</td><td align="right">0</td><td align="right">6.7</td><td align="right">271</td><td align="right">11.9</td><td>Сверхземля</td></tr>
+
+        <tr><td>21</td><td>Kepler-442b</td><td align="right">1.34</td><td align="right">2.3</td><td align="right">0</td><td align="right">112.3</td><td align="right">233</td><td align="right">1115</td><td>Суперземля</td></tr>
+        <tr><td>22</td><td>TRAPPIST-1g</td><td align="right">1.13</td><td align="right">1.34</td><td align="right">0</td><td align="right">12.4</td><td align="right">198</td><td align="right">39.5</td><td>Землеподобная</td></tr>
+        <tr><td>23</td><td>Ross 128 b</td><td align="right">1.11</td><td align="right">1.4</td><td align="right">0</td><td align="right">9.87</td><td align="right">281</td><td align="right">11</td><td>Землеподобная</td></tr>
+        <tr><td>24</td><td>HD 219134 b</td><td align="right">1.60</td><td align="right">4.74</td><td align="right">0</td><td align="right">3.09</td><td align="right">783</td><td align="right">21.3</td><td>Суперземля</td></tr>
+        <tr><td>25</td><td>Kepler-62f</td><td align="right">1.41</td><td align="right">2.8</td><td align="right">0</td><td align="right">267.3</td><td align="right">208</td><td align="right">990</td><td>Суперземля</td></tr>
+        <tr><td>26</td><td>GJ 1132 b</td><td align="right">1.13</td><td align="right">1.66</td><td align="right">0</td><td align="right">1.63</td><td align="right">500</td><td align="right">39.3</td><td>Землеподобная</td></tr>
+        <tr><td>27</td><td>HD 40307 g</td><td align="right">2.39</td><td align="right">7.09</td><td align="right">0</td><td align="right">197.8</td><td align="right">279</td><td align="right">42.4</td><td>Суперземля</td></tr>
+        <tr><td>28</td><td>Kepler-443b</td><td align="right">2.33</td><td align="right">6.9</td><td align="right">0</td><td align="right">177.7</td><td align="right">247</td><td align="right">2540</td><td>Суперземля</td></tr>
+        <tr><td>29</td><td>Wolf 1061c</td><td align="right">1.64</td><td align="right">3.41</td><td align="right">0</td><td align="right">17.9</td><td align="right">287</td><td align="right">13.8</td><td>Сверхземля</td></tr>
+        <tr><td>30</td><td>GJ 832 c</td><td align="right">1.69</td><td align="right">5.4</td><td align="right">0</td><td align="right">35.7</td><td align="right">253</td><td align="right">16.1</td><td>Суперземля</td></tr>
+
+        <tr><td>31</td><td>Kepler-296e</td><td align="right">1.53</td><td align="right">3.6</td><td align="right">0</td><td align="right">34.1</td><td align="right">267</td><td align="right">737</td><td>Суперземля</td></tr>
+        <tr><td>32</td><td>TRAPPIST-1d</td><td align="right">0.78</td><td align="right">0.41</td><td align="right">0</td><td align="right">4.05</td><td align="right">288</td><td align="right">39.5</td><td>Землеподобная</td></tr>
+        <tr><td>33</td><td>GJ 1214 c</td><td align="right">2.21</td><td align="right">6.9</td><td align="right">0</td><td align="right">5.6</td><td align="right">450</td><td align="right">47.8</td><td>Мини-Нептун</td></tr>
+        <tr><td>34</td><td>Kepler-186c</td><td align="right">1.25</td><td align="right">2.1</td><td align="right">0</td><td align="right">7.3</td><td align="right">342</td><td align="right">492</td><td>Суперземля</td></tr>
+        <tr><td>35</td><td>HD 85512 b</td><td align="right">1.67</td><td align="right">3.6</td><td align="right">0</td><td align="right">58.4</td><td align="right">298</td><td align="right">36.3</td><td>Суперземля</td></tr>
+        <tr><td>36</td><td>Kepler-438c</td><td align="right">1.98</td><td align="right">5.7</td><td align="right">0</td><td align="right">52.6</td><td align="right">312</td><td align="right">472</td><td>Суперземля</td></tr>
+        <tr><td>37</td><td>GJ 667Cf</td><td align="right">1.45</td><td align="right">2.7</td><td align="right">0</td><td align="right">39</td><td align="right">245</td><td align="right">23.6</td><td>Сверхземля</td></tr>
+        <tr><td>38</td><td>Kepler-62e</td><td align="right">1.61</td><td align="right">4.5</td><td align="right">0</td><td align="right">122.4</td><td align="right">270</td><td align="right">990</td><td>Суперземля</td></tr>
+        <tr><td>39</td><td>TRAPPIST-1b</td><td align="right">1.12</td><td align="right">1.02</td><td align="right">0</td><td align="right">1.51</td><td align="right">400</td><td align="right">39.5</td><td>Землеподобная</td></tr>
+        <tr><td>40</td><td>GJ 581 g</td><td align="right">1.31</td><td align="right">3.1</td><td align="right">0</td><td align="right">36.6</td><td align="right">261</td><td align="right">20.3</td><td>Сверхземля</td></tr>
+
+        <tr><td>41</td><td>Kepler-452c</td><td align="right">1.28</td><td align="right">3.2</td><td align="right">0</td><td align="right">15.8</td><td align="right">320</td><td align="right">1402</td><td>Суперземля</td></tr>
+        <tr><td>42</td><td>HD 20794 d</td><td align="right">1.35</td><td align="right">3.5</td><td align="right">0</td><td align="right">90.3</td><td align="right">220</td><td align="right">19.8</td><td>Суперземля</td></tr>
+        <tr><td>43</td><td>Kepler-1649b</td><td align="right">1.03</td><td align="right">1.2</td><td align="right">0</td><td align="right">8.7</td><td align="right">307</td><td align="right">300</td><td>Землеподобная</td></tr>
+        <tr><td>44</td><td>GJ 1061 d</td><td align="right">1.52</td><td align="right">1.68</td><td align="right">0</td><td align="right">13</td><td align="right">248</td><td align="right">11.9</td><td>Сверхземля</td></tr>
+        <tr><td>45</td><td>Teegarden c</td><td align="right">1.05</td><td align="right">1.11</td><td align="right">0</td><td align="right">11.4</td><td align="right">226</td><td align="right">12.5</td><td>Землеподобная</td></tr>
+        <tr><td>46</td><td>Kepler-186e</td><td align="right">1.27</td><td align="right">2.3</td><td align="right">0</td><td align="right">22.4</td><td align="right">298</td><td align="right">492</td><td>Суперземля</td></tr>
+        <tr><td>47</td><td>GJ 357 c</td><td align="right">1.18</td><td align="right">3.4</td><td align="right">0</td><td align="right">9.1</td><td align="right">321</td><td align="right">31</td><td>Сверхземля</td></tr>
+        <tr><td>48</td><td>HD 40307 f</td><td align="right">1.75</td><td align="right">5.2</td><td align="right">0</td><td align="right">51.8</td><td align="right">305</td><td align="right">42.4</td><td>Суперземля</td></tr>
+        <tr><td>49</td><td>Kepler-296f</td><td align="right">1.80</td><td align="right">4.5</td><td align="right">0</td><td align="right">63.3</td><td align="right">240</td><td align="right">737</td><td>Суперземля</td></tr>
+        <tr><td>50</td><td>TRAPPIST-1c</td><td align="right">1.10</td><td align="right">1.16</td><td align="right">0</td><td align="right">2.42</td><td align="right">342</td><td align="right">39.5</td><td>Землеподобная</td></tr>
+      </tbody>
+    </table>
+
+    <p>Таблица содержит 50 строк — пример демонстрационных данных, которые можно использовать для последующей обработки.</p>
+  </section>
+
+  <!-- Дополнительные формы снизу (например, для экспорта/импорта) -->
+  <section>
+    <h2>Формы экспорта/импорта</h2>
+    <form action="#" method="post" enctype="multipart/form-data" name="exportForm">
+      <label for="exportFormat">Экспорт в формат:</label>
+      <select id="exportFormat" name="exportFormat">
+        <option value="csv">CSV</option>
+        <option value="tsv">TSV</option>
+        <option value="xlsx">XLSX</option>
+      </select>
+      <input type="submit" value="Экспортировать" />
+    </form>
+
+    <form action="#" method="post" enctype="multipart/form-data" name="importForm">
+      <label for="importFile">Импорт файла:</label>
+      <input type="file" id="importFile" name="importFile" accept=".csv,.tsv,.xlsx" />
+      <input type="submit" value="Загрузить" />
+    </form>
+  </section>
+
+  <footer>
+    <p align="center">© Астральный атлас — выполнил Назаров Максим Юрьевич Б9123-02.03.03тп</p>
+  </footer>
+</body>
+</html>
