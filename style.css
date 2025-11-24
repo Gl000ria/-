@@ -1,0 +1,411 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-width: 1200px; /* Минимальная ширина, при которой верстка не ломается */
+}
+
+/* 1 строка */
+.header {
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+}
+.logo {
+    float: left;
+}
+.menu {
+    float: right;
+}
+.menu a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+}
+.header::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 2 строка */
+/* Стили для изображений в top-gallery */
+.top-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Остальные стили остаются без изменений */
+.big-img {
+    float: left;
+    width: 70%;
+    height: 200px;
+    background: pink;
+}
+.side-img {
+    float: left;
+    width: 30%;
+    height: 100px;
+    background: lightblue;
+}
+.bottom-wide-img {
+    clear: both;
+    width: 100%;
+    height: 120px;
+    background: #b9a9a1;
+}
+.top-gallery::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 3 строка */
+.content {
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+/*** Боковые столбцы ***/
+.side-column {
+    width: 12.5%;
+    float: left;
+}
+.side-item {
+    margin-bottom: 22px;
+}
+.side-item .pic {
+    width: 78px;
+    height: 78px;
+    background: #a8d7e5;
+    margin: 0 auto 6px auto;
+    border: 1px solid #000;
+    overflow: hidden; /* Добавьте эту строку */
+}
+.side-item .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Добавьте этот стиль */
+    display: block;
+}
+.side-item h4,
+.side-item p {
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+}
+
+/*** Центральный блок выравнен ***/
+.center-block {
+    width: 75%;
+    float: left;
+    margin-top: -25px;
+    text-align: center;
+}
+
+/*** 6 квадратных картинок ***/
+.six-pics-row {
+    margin: 0 auto 28px auto;
+    width: 90%;
+    text-align: center;
+}
+.pic-block {
+    display: inline-block;
+    margin: 28px;
+    vertical-align: top;
+}
+.square-pic {
+    width: 78px;
+    height: 78px;
+    background: #a8d7e5;
+    margin: 0 auto;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+.square-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.caption {
+    font-size: 12px;
+    text-align: center;
+    margin: 5px 0;
+}
+.text {
+    font-size: 11px;
+    text-align: center;
+    margin: 0;
+}
+
+/*** Блок с рамкой ***/
+.four-part-block {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid #333;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #f9f9f9;
+}
+
+.block-title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*** Объединенный текстовый блок с двумя колонками ***/
+.unified-text-block {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-right: 2%;
+    position: relative;
+    height: 320px; /* Фиксированная высота как у картинки */
+}
+
+.unified-text-block .text-content {
+    column-count: 2;
+    column-gap: 20px;
+    text-align: justify;
+    font-size: 13px;
+    line-height: 1.4;
+    height: 300px; /* Увеличиваем высоту текста чтобы опустить кнопку ниже */
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/*** Псевдо-элемент для многоточия в конце ***/
+.unified-text-block .text-content::after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+    padding-left: 5px;
+}
+
+/*** "Подробнее" под правым столбцом - выше и правее ***/
+.unified-text-block .more {
+    position: absolute;
+    bottom: 0;
+    left: 59%; /* Размещаем по центру под вторым столбцом */
+    transform: translateX(-50%);
+    display: block;
+    background: none;
+    padding: 0;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #0066cc;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+/*** Картинка ***/
+.big-image {
+    width: 48%;
+    height: 320px;
+    background: #f2f2f2;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #000;
+    overflow: hidden; /* Обрезает всё, что выходит за границы */
+}
+
+.big-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняет весь блок с сохранением пропорций */
+    display: block;
+}
+
+/*** Убираем старые текстовые блоки ***/
+.text-box {
+    display: none;
+}
+
+/*** очистка плавающих ***/
+.content::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 4 строка */
+.footer {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #aaa;
+}
+
+/* Для экранов до 1600px - легкое уменьшение */
+@media (max-width: 1600px) {
+    .pic-block {
+        margin: 25px;
+    }
+    
+    .six-pics-row {
+        width: 92%;
+    }
+}
+
+/* Для экранов до 1400px */
+@media (max-width: 1400px) {
+    .pic-block {
+        margin: 22px;
+    }
+    
+    .side-item .pic,
+    .square-pic {
+        width: 72px;
+        height: 72px;
+    }
+    
+    .unified-text-block {
+        height: 300px;
+    }
+    
+    .unified-text-block .text-content {
+        height: 280px;
+        font-size: 12.5px;
+    }
+    
+    .big-image {
+        height: 300px;
+    }
+    
+    .six-pics-row {
+        width: 94%;
+    }
+    
+    .four-part-block {
+        width: 96%;
+    }
+    
+    /* Корректировка позиции "Подробнее" */
+    .unified-text-block .more {
+        left: 60%;
+    }
+}
+
+/* Для экранов до 1300px */
+@media (max-width: 1300px) {
+    .pic-block {
+        margin: 20px;
+    }
+    
+    .side-item .pic,
+    .square-pic {
+        width: 68px;
+        height: 68px;
+    }
+    
+    .unified-text-block {
+        height: 290px;
+    }
+    
+    .unified-text-block .text-content {
+        height: 270px;
+        font-size: 12px;
+        column-gap: 15px;
+    }
+    
+    .big-image {
+        height: 290px;
+    }
+    
+    .caption {
+        font-size: 11.5px;
+    }
+    
+    .text {
+        font-size: 10.5px;
+    }
+    
+    /* Корректировка позиции "Подробнее" */
+    .unified-text-block .more {
+        left: 60%;
+    }
+}
+
+/* Для экранов до 1200px - минимальная ширина перед переносами */
+@media (max-width: 1200px) {
+    body {
+        min-width: 1200px; /* Фиксируем минимальную ширину */
+    }
+    
+    .pic-block {
+        margin: 18px;
+    }
+    
+    .side-item .pic,
+    .square-pic {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .side-item {
+        margin-bottom: 20px;
+    }
+    
+    .unified-text-block {
+        height: 280px;
+        width: 48%;
+    }
+    
+    .unified-text-block .text-content {
+        height: 260px;
+        font-size: 11.5px;
+        column-gap: 12px;
+    }
+    
+    .big-image {
+        width: 48%;
+        height: 280px;
+    }
+    
+    .six-pics-row {
+        width: 96%;
+    }
+    
+    .four-part-block {
+        width: 98%;
+        padding: 18px;
+    }
+    
+    .block-title {
+        font-size: 19px;
+    }
+    
+    .menu a {
+        margin-left: 12px;
+        font-size: 14px;
+    }
+    
+    .big-img {
+        height: 190px;
+    }
+    
+    .side-img {
+        height: 95px;
+    }
+    
+    .bottom-wide-img {
+        height: 110px;
+    }
+    
+    /* Финальная корректировка позиции "Подробнее" */
+    .unified-text-block .more {
+        left: 60%;
+    }
+}
+
+/* Убираем старые медиа-запросы для text-box */
+.text-box {
+    display: none;
+}
