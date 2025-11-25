@@ -2,169 +2,139 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Макет страницы</title>
+    <title>Главная</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="header">
-    <div class="logo">Астрономический атлас / слоган: Выше к звездам</div>
-    <nav class="menu">
-        <a href="#">Главная</a>
-        <a href="milky_way.html">Млечный Путь</a>
-        <a href="data.html">Таблица</a>
+<div class="page">
+
+    <!-- ===== БЛОК 1 (МЕНЮ) ===== -->
+    <header class="menu">
+    <nav>
+        <a class="active" href="index.html" title="Главная">Главная</a>
+        <a>Меню 2</a>
+        <a>Меню 3</a>
+        <a>Меню 4</a>
     </nav>
-</header>
+    </header>
 
-<section class="top-gallery">
-    <div class="big-img">
-        <img src="https://avatars.mds.yandex.net/i?id=b75e9a7450a53ec6c9ffe1aca6d89c806ad72bfe-7467285-images-thumbs&n=13">
+    <!-- ===== БЛОК 2 (4 КАРТИНКИ) ===== -->
+    <section class="top-gallery">
+    <div class="pic large">
+        <img src="https://avatars.mds.yandex.net/i?id=b75e9a7450a53ec6c9ffe1aca6d89c806ad72bfe-7467285-images-thumbs&n=13" alt="Описание большой картинки">
     </div>
-    <div class="side-img top">
-        <img src="https://avatars.mds.yandex.net/i?id=8cc7b33bf0e451784e7fac9e4533ce0407a0b86a-4576871-images-thumbs&n=13">
+    <div class="pic small1">
+        <img src="https://avatars.mds.yandex.net/i?id=8cc7b33bf0e451784e7fac9e4533ce0407a0b86a-4576871-images-thumbs&n=13" alt="Описание маленькой картинки 1">
     </div>
-    <div class="side-img bottom">
-        <img src="https://avatars.mds.yandex.net/i?id=8d6e71b06f6ce7965c53e05ca8a21088ba1f7899-4568749-images-thumbs&n=13">
+    <div class="pic small2">
+        <img src="https://avatars.mds.yandex.net/i?id=8d6e71b06f6ce7965c53e05ca8a21088ba1f7899-4568749-images-thumbs&n=13" alt="Описание маленькой картинки 2">
     </div>
-    <div class="bottom-wide-img">
-        <img src="https://avatars.mds.yandex.net/i?id=c578dfe9071d055c806e8ad81996d07d4ecb604c-5855963-images-thumbs&n=13">
+    <div class="pic tall">
+        <img src="https://avatars.mds.yandex.net/i?id=c578dfe9071d055c806e8ad81996d07d4ecb604c-5855963-images-thumbs&n=13" alt="Описание высокой картинки">
     </div>
 </section>
 
-<section class="content">
+    <!-- ===== БЛОКИ 3, 4 и 5 ===== -->
+    <section class="bottom-row">
 
-    <aside class="side-column left">
-    <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/i?id=056fa3b382995d4f7fe25cdf8087502eae5df198-12511685-images-thumbs&n=13" alt="Описание 1">
+        <!-- БЛОК 3 (левый столбец) -->
+       <aside class="side-column">
+    <div class="mini-item">
+        <div class="mini-card">
+            <img src="https://avatars.mds.yandex.net/i?id=056fa3b382995d4f7fe25cdf8087502eae5df198-12511685-images-thumbs&n=13" alt="Описание картинки 1">
         </div>
-        <h4>Созвездие Лебедь</h4>
-        <p>16-е место из 88 созвездий по размеру.</p>
+        <div class="mini-title">Созвездие Лебедь</div>
+        <div class="mini-text">16-е место из 88 созвездий по размеру.</div>
     </div>
-    <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/i?id=cdb8169d9604997273d8050f91e110b4cabd0884-8527116-images-thumbs&n=13" alt="Описание 2">
+    <div class="mini-item">
+        <div class="mini-card">
+            <img src="https://avatars.mds.yandex.net/i?id=cdb8169d9604997273d8050f91e110b4cabd0884-8527116-images-thumbs&n=13" alt="Описание картинки 2">
         </div>
-        <h4>Созвездие Кассиопея</h4>
-        <p>Содержит около 90 звёзд ярче 6m </p>
+        <div class="mini-title">Созвездие Кассиопея</div>
+        <div class="mini-text">Содержит около 90 звёзд ярче 6m </div>
     </div>
-    <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/i?id=7f1dc62ef97d79e41f4aa9d55caf89b0adea96be-5496696-images-thumbs&n=13" alt="Описание 3">
+    <div class="mini-item">
+        <div class="mini-card">
+            <img src="https://avatars.mds.yandex.net/i?id=7f1dc62ef97d79e41f4aa9d55caf89b0adea96be-5496696-images-thumbs&n=13" alt="Описание картинки 3">
         </div>
-        <h4>Созвездие Змееносца</h4>
-        <p>Некоторые астрологи считают, что Змееносец — 13-й знак зодиака, но это не так</p>
+        <div class="mini-title">Созвездие Змееносца</div>
+        <div class="mini-text">Некоторые астрологи считают, что Змееносец — 13-й знак зодиака, но это не так</div>
     </div>
-    <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/i?id=f55b5da708d1072d429d81b889e3feb66c726348-5904657-images-thumbs&n=13" alt="Описание 4">
+    <div class="mini-item">
+        <div class="mini-card">
+            <img src="https://avatars.mds.yandex.net/i?id=f55b5da708d1072d429d81b889e3feb66c726348-5904657-images-thumbs&n=136" alt="Описание картинки 4">
         </div>
-        <h4>Созвездие Большая медведица</h4>
-        <p>Согласно легенде, нимфа Каллисто была превращена ревнивой Герой в медведицу</p>
+        <div class="mini-title">Созвездие Большая медведица</div>
+        <div class="mini-text">Согласно легенде, нимфа Каллисто была превращена ревнивой Герой в медведицу</div>
     </div>
-    </aside>
+</aside>
 
-    <main class="center-block">
-     <div class="six-pics-row">
-             <div class="pic-block">
-            <div class="square-pic">
-            <img src="https://avatars.mds.yandex.net/get-entity_search/5663642/1219686992/S122x122Smart_2x" alt="Меркурий">
-        </div>
-        <div class="caption">Меркурий</div>
-        <div class="text">1-ая планета</div>
-    </div>
-    <div class="pic-block">
-        <div class="square-pic">
-            <img src="https://avatars.mds.yandex.net/get-entity_search/5735732/1220300478/S122x122Smart_2x" alt="Венера">
-        </div>
-        <div class="caption">Венера</div>
-        <div class="text">2-ая планета</div>
-    </div>
-    <div class="pic-block">
-        <div class="square-pic">
-            <img src="https://avatars.mds.yandex.net/get-entity_search/5512046/952260654/S122x122Smart_2x" alt="Марс">
-        </div>
-        <div class="caption">Марс</div>
-        <div class="text">4-ая планета</div>
-    </div>
-    <div class="pic-block">
-        <div class="square-pic">
-            <img src="https://avatars.mds.yandex.net/get-entity_search/5101278/1219465907/S122x122Smart_2x" alt="Юпитер">
-        </div>
-        <div class="caption">Юпитер</div>
-        <div class="text">5-ая планета</div>
-     </div>
-     <div class="pic-block">
-        <div class="square-pic">
-            <img src="https://avatars.mds.yandex.net/get-entity_search/5103535/1219732240/S122x122_2x" alt="Сатурн">
-        </div>
-        <div class="caption">Сатурн</div>
-        <div class="text">6-ая планета</div>
-        </div>
-     <div class="pic-block">
-        <div class="square-pic">
-            <img src="https://avatars.mds.yandex.net/get-entity_search/127082/1220898219/S122x122Smart_2x" alt="Уран">
-        </div>
-        <div class="caption">Уран</div>
-        <div class="text">7-ая планета</div>
-     </div>
-    </div>
+        <!-- ЦЕНТР (БЛОК 4 + БЛОК 5) -->
+        <div class="center-column">
 
-        <div class="four-part-block">
-    <div class="block-title">Млечный путь</div>
+            <!-- БЛОК 4 (два подблока) -->
+            <div class="dual-block">
 
-    <div class="unified-text-block">
-        <div class="text-content">
-            Млечный Путь (Галактика) — галактика, в которой находится Земля и Солнечная система. Относится к типу спиральных галактик с перемычкой. Радиус Млечного Пути считается равным радиусу его звёздного диска и составляет 16 килопарсек. Полная масса Галактики с учётом тёмной материи оценивается как 1—2⋅1012 M⊙. В Млечном Пути находится от 100 до 400 миллиардов звёзд, а его светимость составляет 2⋅1010 L⊙. По сравнению с другими спиральными галактиками Млечный Путь имеет довольно большую массу и высокую светимость. Солнечная система расположена на расстоянии в 7,5—8,5 килопарсеков от центра Галактики и движется вокруг него со скоростью 220 км/с.
+                <div class="subblock">
+                    <div class="img-rounded"></div>
+                    <h3>Заголовок</h3>
+                    <p>Текст ... Текст ... Текст ... Текст ... Текст ... Текст ...</p>
+                    <button class="btn">Подробнее</button>
+                </div>
 
-            Все звёзды, видимые невооружённым глазом, относятся к нашей Галактике[1], но название «Млечный Путь» происходит от светлой туманной полосы на ночном небе, свет которой создаётся многочисленными тусклыми звёздами в диске Галактики. Из-за того, что Земля находится внутри Млечного Пути, точный вид нашей Галактики снаружи неизвестен.
+                <div class="subblock">
+                    <h3>Заголовок</h3>
+                    <p>Текст ... Текст ...  ... Текст ... Текст ... Текст ...</p>
+                    <div class="img-rounded"></div>
+                    <button class="btn">Подробнее</button>
+                </div>
 
-            Большинство звёзд в Галактике сосредоточено в галактическом диске со спиральными рукавами. Также в ней присутствуют средних размеров балдж и умеренно выраженный бар, и по морфологической классификации её относят к типу SBbc или SABbc. Кроме того, диск Млечного Пути окружён галактическим гало, в котором содержится небольшая доля звёзд и большое количество гипотетической тёмной материи. В центре Галактики расположена сверхмассивная чёрная дыра Стрелец А*.
+            </div>
+
+            <!-- БЛОК 5 -->
+<div class="horizontal-block">
+    <div class="block5-content">
+        <div class="block5-title">Заголовок</div>
+        <div class="block5-text">Текст ... Текст .------.. Текст ... Текст ... Текст ... Текст ... Текст ... Текст ... Текст ... Текст ...</div>
+        <button class="btn block5-btn">Подробнее</button>
+        <div class="side-img"></div>
+    </div>
+</div>
+
         </div>
-        <a href="milky_way.html" class="more">Подробнее</a>
-    </div>
-    <div class="big-image">
-         <img src="https://avatars.mds.yandex.net/i?id=5e2582126f122d5be24d1334fb769d0e9b3233f6-5878141-images-thumbs&n=13" alt="Описание изображения">
-    </div>
-  </div>
-    </main>
 
-    <aside class="side-column right">
-       <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/i?id=f6c2de0abc8712e6e0b32561ccba91eedb3e39ac-10770607-images-thumbs&n=13" alt="Описание 1">
-        </div>
-        <h4>Созвездие Ориона</h4>
-        <p>Названо в честь охотника Ориона из древнегреческой мифологии.</p>
-    </div>
-    <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/get-entity_search/2223725/1189261669/SUx182_2x" alt="Описание 2">
-        </div>
-        <h4>Созвездие Лира</h4>
-        <p>Небольшое созвездие северного полушария, лежащее между Геркулесом и Лебедем</p>
-    </div>
-    <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/i?id=28f967aec8a68fdb2d95b570b231041b18da5b3d-9104009-images-thumbs&n=13" alt="Описание 3">
-        </div>
-        <h4>Созвездие Рыбы</h4>
-        <p>В Рыбах находится точка весеннего равноденствия. Солнце находится в созвездии с 12 марта по 18 апреля.</p>
-    </div>
-    <div class="side-item">
-        <div class="pic">
-            <img src="https://avatars.mds.yandex.net/i?id=7aaa14648a521711c342c7b999e46895aeba4d42-5161154-images-thumbs&n=13" alt="Описание 4">
-        </div>
-        <h4>Созвездие Тельца</h4>
-        <p>Созвездие видно между широтами от +90° до -65°. Лучшее время для наблюдения — ноябрь и декабрь.</p>
-    </div>
-    </aside>
+        <!-- БЛОК 3 (правый столбец) -->
+        <aside class="side-column">
+            <div class="mini-item">
+                <div class="mini-card"></div>
+                <div class="mini-title">Заголовок</div>
+                <div class="mini-text">Текст ...</div>
+            </div>
+            <div class="mini-item">
+                <div class="mini-card"></div>
+                <div class="mini-title">Заголовок</div>
+                <div class="mini-text">Текст ...</div>
+            </div>
+            <div class="mini-item">
+                <div class="mini-card"></div>
+                <div class="mini-title">Заголовок</div>
+                <div class="mini-text">Текст ...</div>
+            </div>
+            <div class="mini-item">
+                <div class="mini-card"></div>
+                <div class="mini-title">Заголовок</div>
+                <div class="mini-text">Текст ...</div>
+            </div>
+        </aside>
 
-</section>
+    </section>
 
-<footer class="footer">
+</div>
+
+ <footer class="footer">
     Выполнил: Назаров Максим Юрьевич / Б9123-02.03.03тп
-</footer>
-
+</footer> 
 </body>
 </html>

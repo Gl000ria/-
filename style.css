@@ -1,411 +1,400 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    min-width: 1200px; /* Минимальная ширина, при которой верстка не ломается */
+    background: #fff;
+    font-family: sans-serif;
 }
 
-/* 1 строка */
-.header {
-    padding: 10px;
-    border-bottom: 1px solid #aaa;
+.page {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 30px;
+    padding: 0 15px;
 }
-.logo {
-    float: left;
-}
+
+/* ===== БЛОК 1 ===== */
+
 .menu {
-    float: right;
+    border-top: 4px solid #ccc;
+    border-bottom: 4px solid #ccc;
+    text-align: center;
 }
+
+.menu nav {
+    display: inline-flex;
+    gap: 30px;
+    align-items: center;
+}
+
 .menu a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #333;
-}
-.header::after {
-    content: "";
-    display: block;
-    clear: both;
+    padding: 3px 0;
 }
 
-/* 2 строка */
-/* Стили для изображений в top-gallery */
-.top-gallery img {
+.menu .active {
+    font-weight: bold;
+    color: #0c8a2b;
+    padding: 3px 20px;
+    border-left: 4px solid #ccc;
+    border-right: 4px solid #ccc;
+    margin: -7px 0; /* Минимальные отрицательные отступы */
+    line-height: normal;
+}
+/* Адаптивность для меню */
+@media (max-width: 768px) {
+    .menu nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .menu a {
+        text-align: center;
+        padding: 8px 5px;
+    }
+    
+    .menu .active {
+        margin: 0;
+        padding: 8px 5px;
+    }
+}
+
+.top-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 100px;
+    gap: 15px;
+}
+
+.pic { 
+    background: #dcdcdc; 
+    position: relative;
+    overflow: hidden;
+}
+
+.pic img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* Остальные стили остаются без изменений */
-.big-img {
-    float: left;
-    width: 70%;
-    height: 200px;
-    background: pink;
+.large { 
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2; 
 }
-.side-img {
-    float: left;
-    width: 30%;
-    height: 100px;
-    background: lightblue;
+.small1 { 
+    grid-column: 1 / 2; 
+    grid-row: 2 / 3; 
+    background: #ffe1b2; 
+    width: calc(50% - 7.5px);
+    margin-right: 7.5px;
 }
-.bottom-wide-img {
-    clear: both;
-    width: 100%;
-    height: 120px;
-    background: #b9a9a1;
+.small2 { 
+    grid-column: 1 / 2; 
+    grid-row: 2 / 3; 
+    background: #a8ecf5; 
+    width: calc(50% - 7.5px);
+    margin-left: 7.5px;
+    justify-self: end;
 }
-.top-gallery::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-/* 3 строка */
-.content {
-    padding: 20px 0;
-    overflow: hidden;
+.tall { 
+    grid-column: 2 / 3; 
+    grid-row: 1 / 3; 
+    background: #bea9a2; 
 }
 
-/*** Боковые столбцы ***/
+/* Адаптивность для галереи */
+@media (max-width: 768px) {
+    .top-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .large, .tall {
+        grid-column: 1;
+        grid-row: auto;
+        height: 200px;
+    }
+    
+    .small1, .small2 {
+        grid-column: 1;
+        grid-row: auto;
+        width: 100%;
+        margin: 0;
+        height: 100px;
+    }
+}
+
+/* ===== СТРОКА 3 ===== */
+
+.bottom-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px;
+    gap: 25px;
+}
+
+/* Адаптивность для нижнего ряда */
+@media (max-width: 768px) {
+    .bottom-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* ===== БЛОК 3 ===== */
 .side-column {
-    width: 12.5%;
-    float: left;
-}
-.side-item {
-    margin-bottom: 22px;
-}
-.side-item .pic {
-    width: 78px;
-    height: 78px;
-    background: #a8d7e5;
-    margin: 0 auto 6px auto;
-    border: 1px solid #000;
-    overflow: hidden; /* Добавьте эту строку */
-}
-.side-item .pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Добавьте этот стиль */
-    display: block;
-}
-.side-item h4,
-.side-item p {
-    text-align: center;
-    margin: 0;
-    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-/*** Центральный блок выравнен ***/
-.center-block {
-    width: 75%;
-    float: left;
-    margin-top: -25px;
+/* Адаптивность для боковой колонки */
+@media (max-width: 768px) {
+    .side-column {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .mini-item {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .mini-item {
+        flex: 0 0 100%;
+    }
+}
+
+.mini-item {
     text-align: center;
 }
 
-/*** 6 квадратных картинок ***/
-.six-pics-row {
-    margin: 0 auto 28px auto;
-    width: 90%;
-    text-align: center;
-}
-.pic-block {
-    display: inline-block;
-    margin: 28px;
-    vertical-align: top;
-}
-.square-pic {
-    width: 78px;
-    height: 78px;
-    background: #a8d7e5;
-    margin: 0 auto;
-    border: 1px solid #000;
+.mini-card {
+    height: 90px;
+    width: 90px;
+    border: 3px solid #45a9d6;
+    margin: 0 auto 5px;
     overflow: hidden;
+    position: relative;
 }
-.square-pic img {
+
+.mini-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-.caption {
+
+.mini-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.mini-text {
     font-size: 12px;
-    text-align: center;
-    margin: 5px 0;
-}
-.text {
-    font-size: 11px;
-    text-align: center;
-    margin: 0;
 }
 
-/*** Блок с рамкой ***/
-.four-part-block {
-    width: 95%;
-    margin: 0 auto;
-    text-align: center;
-    border: 2px solid #333;
-    padding: 20px;
-    box-sizing: border-box;
-    background: #f9f9f9;
+/* ===== БЛОК 4 ===== */
+
+.center-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
-.block-title {
-    font-size: 20px;
-    text-align: center;
+.dual-block {
+    display: flex;
+    justify-content: space-between;
+    gap: 75px;
+}
+
+/* Адаптивность для dual-block */
+@media (max-width: 768px) {
+    .dual-block {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .subblock {
+        width: 100%;
+    }
+}
+
+.subblock {
+    width: 48%;
+    border: 2px solid #aee8f5;
+    border-radius: 18px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+}
+
+.subblock:first-child {
+    justify-content: space-between;
+}
+
+.subblock:last-child {
+    justify-content: space-between;
+}
+
+.subblock:last-child .img-rounded {
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+.img-rounded {
+    height: 130px;
+    background: #8ae3f4;
+    border-radius: 28px;
     margin-bottom: 20px;
 }
 
-/*** Объединенный текстовый блок с двумя колонками ***/
-.unified-text-block {
-    width: 48%;
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    margin-right: 2%;
-    position: relative;
-    height: 320px; /* Фиксированная высота как у картинки */
-}
-
-.unified-text-block .text-content {
-    column-count: 2;
-    column-gap: 20px;
-    text-align: justify;
-    font-size: 13px;
-    line-height: 1.4;
-    height: 300px; /* Увеличиваем высоту текста чтобы опустить кнопку ниже */
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-/*** Псевдо-элемент для многоточия в конце ***/
-.unified-text-block .text-content::after {
-    content: "...";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: white;
-    padding-left: 5px;
-}
-
-/*** "Подробнее" под правым столбцом - выше и правее ***/
-.unified-text-block .more {
-    position: absolute;
-    bottom: 0;
-    left: 59%; /* Размещаем по центру под вторым столбцом */
-    transform: translateX(-50%);
-    display: block;
-    background: none;
-    padding: 0;
-    font-size: 13px;
+.btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
-    text-decoration: none;
-    color: #0066cc;
-    margin-top: 10px;
+}
+
+.subblock:first-child .btn {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.subblock:last-child .btn {
+    align-self: flex-end;
+}
+
+.subblock h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.subblock {
+    overflow: hidden;
+}
+
+.subblock h3 {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.subblock p, 
+.subblock div:not(.img-rounded):not(.btn) {
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    text-overflow: ellipsis;
+    max-height: calc(1.2em * 5);
+    line-height: 1.2;
+}
+
+.subblock .text-content {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.subblock {
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* ===== БЛОК 5 ===== */
+
+.horizontal-block {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px;
+    align-items: start;
+    min-height: 200px;
+    border: 2px solid #f0f0f0;
+    border-radius: 18px;
+    padding: 25px;
+}
+
+@media (max-width: 768px) {
+    .horizontal-block {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .side-img {
+        width: 100%;
+        height: 150px;
+        order: -1;
+    }
+    
+    .block5-content {
+        grid-template-areas: 
+            "title"
+            "text"
+            "button";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+}
+
+.block5-content {
+    display: grid;
+    grid-template-areas: 
+        "title text image"
+        ". text image"
+        ". button image";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    gap: 15px;
+    height: 100%;
+    align-items: start;
+}
+
+.block5-title {
+    font-weight: bold;
+    font-size: 18px;
+    grid-area: title;
+    margin: 0;
+    align-self: start;
     white-space: nowrap;
 }
 
-/*** Картинка ***/
-.big-image {
-    width: 48%;
-    height: 320px;
-    background: #f2f2f2;
-    display: inline-block;
-    vertical-align: top;
-    border: 1px solid #000;
-    overflow: hidden; /* Обрезает всё, что выходит за границы */
+.block5-text {
+    line-height: 1.5;
+    margin: 0;
+    grid-area: text;
+    max-width: 1000px;
+    max-height: 220px;    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.big-image img {
-    width: 100%;
+.block5-btn {
+    grid-area: button;
+    align-self: end;
+    justify-self: end;
+    margin-top: 10px;
+}
+
+.side-img {
+    width: 200px;
     height: 100%;
-    object-fit: cover; /* Заполняет весь блок с сохранением пропорций */
-    display: block;
+    background: #f5d9a5;
+    border-radius: 18px;
+    grid-area: image;
+    align-self: stretch;
 }
 
-/*** Убираем старые текстовые блоки ***/
-.text-box {
-    display: none;
-}
-
-/*** очистка плавающих ***/
-.content::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-/* 4 строка */
 .footer {
     text-align: center;
     padding: 15px;
     border-top: 1px solid #aaa;
-}
-
-/* Для экранов до 1600px - легкое уменьшение */
-@media (max-width: 1600px) {
-    .pic-block {
-        margin: 25px;
-    }
-    
-    .six-pics-row {
-        width: 92%;
-    }
-}
-
-/* Для экранов до 1400px */
-@media (max-width: 1400px) {
-    .pic-block {
-        margin: 22px;
-    }
-    
-    .side-item .pic,
-    .square-pic {
-        width: 72px;
-        height: 72px;
-    }
-    
-    .unified-text-block {
-        height: 300px;
-    }
-    
-    .unified-text-block .text-content {
-        height: 280px;
-        font-size: 12.5px;
-    }
-    
-    .big-image {
-        height: 300px;
-    }
-    
-    .six-pics-row {
-        width: 94%;
-    }
-    
-    .four-part-block {
-        width: 96%;
-    }
-    
-    /* Корректировка позиции "Подробнее" */
-    .unified-text-block .more {
-        left: 60%;
-    }
-}
-
-/* Для экранов до 1300px */
-@media (max-width: 1300px) {
-    .pic-block {
-        margin: 20px;
-    }
-    
-    .side-item .pic,
-    .square-pic {
-        width: 68px;
-        height: 68px;
-    }
-    
-    .unified-text-block {
-        height: 290px;
-    }
-    
-    .unified-text-block .text-content {
-        height: 270px;
-        font-size: 12px;
-        column-gap: 15px;
-    }
-    
-    .big-image {
-        height: 290px;
-    }
-    
-    .caption {
-        font-size: 11.5px;
-    }
-    
-    .text {
-        font-size: 10.5px;
-    }
-    
-    /* Корректировка позиции "Подробнее" */
-    .unified-text-block .more {
-        left: 60%;
-    }
-}
-
-/* Для экранов до 1200px - минимальная ширина перед переносами */
-@media (max-width: 1200px) {
-    body {
-        min-width: 1200px; /* Фиксируем минимальную ширину */
-    }
-    
-    .pic-block {
-        margin: 18px;
-    }
-    
-    .side-item .pic,
-    .square-pic {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .side-item {
-        margin-bottom: 20px;
-    }
-    
-    .unified-text-block {
-        height: 280px;
-        width: 48%;
-    }
-    
-    .unified-text-block .text-content {
-        height: 260px;
-        font-size: 11.5px;
-        column-gap: 12px;
-    }
-    
-    .big-image {
-        width: 48%;
-        height: 280px;
-    }
-    
-    .six-pics-row {
-        width: 96%;
-    }
-    
-    .four-part-block {
-        width: 98%;
-        padding: 18px;
-    }
-    
-    .block-title {
-        font-size: 19px;
-    }
-    
-    .menu a {
-        margin-left: 12px;
-        font-size: 14px;
-    }
-    
-    .big-img {
-        height: 190px;
-    }
-    
-    .side-img {
-        height: 95px;
-    }
-    
-    .bottom-wide-img {
-        height: 110px;
-    }
-    
-    /* Финальная корректировка позиции "Подробнее" */
-    .unified-text-block .more {
-        left: 60%;
-    }
-}
-
-/* Убираем старые медиа-запросы для text-box */
-.text-box {
-    display: none;
 }
